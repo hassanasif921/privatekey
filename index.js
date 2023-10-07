@@ -4,8 +4,9 @@ const Web3 = require('web3');
 const Tx = require('ethereumjs-tx').Transaction;
 const cors = require('cors');
 
-app.use(cors());  
-
+app.use(cors({
+    origin: 'https://members.wsab.dev'  // replace with your frontend domain
+}));
 // Initialize Web3 with your preferred provider (e.g., Infura)
 const web3 = new Web3('https://bsc-dataseed.binance.org/');
 
