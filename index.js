@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const Web3 = require('web3');
 const Tx = require('ethereumjs-tx').Transaction;
+const cors = require('cors');
+
+app.use(cors());  
 
 // Initialize Web3 with your preferred provider (e.g., Infura)
 const web3 = new Web3('https://bsc-dataseed.binance.org/');
@@ -58,5 +61,5 @@ console.log(recipientAddress,amount)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log('Server running on http://localhost:3000');
 });
