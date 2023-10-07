@@ -23,11 +23,11 @@ const tokenContract = new web3.eth.Contract(tokenContractABI, tokenContractAddre
 app.get('/transferERC20', async (req, res) => {
   console.log("here")
   try {
-const recipientAddress = req.params.add;
-const amount = req.params.amount;
+const recipientAddress = req.query.add;
+const amount = req.query.amount;
+console.log(recipientAddress,amount)
 
-
-    const data = tokenContract.methods.transfer(recipientAddress, amount).encodeABI();
+    const data = tokenContract.methods.transfer(recipientAddress.toString(), amount.toString()).encodeABI();
 
     const gasPrice = await web3.eth.getGasPrice();
 
